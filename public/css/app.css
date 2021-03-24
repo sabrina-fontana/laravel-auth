@@ -10013,3 +10013,8 @@ h3 {
 .my-table td img {
   height: 150px;
 }
+.my-table td i {
+  font-size: 26px;
+  display: block;
+  margin: 10px 0;
+}

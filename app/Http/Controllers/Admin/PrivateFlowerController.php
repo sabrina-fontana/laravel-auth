@@ -28,7 +28,7 @@ class PrivateFlowerController extends Controller
      */
     public function create()
     {
-        //
+        return view('flowers.create');
     }
 
     /**
@@ -39,7 +39,12 @@ class PrivateFlowerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newFlower = new Flower();
+        $newFlower->fill($request->all());
+        $newFlower->save();
+
+        return redirect()->route('flowers.show', ['flower' => $newFlower]);
+
     }
 
     /**
@@ -59,31 +64,34 @@ class PrivateFlowerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Flower $flower)
     {
-        //
+        return view('flowers.edit', compact('flower'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Flower $flower
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Flower $flower)
     {
-        //
+        $flower->update($request->all());
+
+        return redirect()->route('flowers.show', compact('flower'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Flower $flower
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Flower $flower)
     {
-        //
+        $flower->delete();
+        return redirect()->route('flowers.index');
     }
 }

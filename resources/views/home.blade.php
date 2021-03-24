@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in!') }} <br>
+                    <a href="{{route('flowers.index')}}"><button type="button" class="btn btn-secondary">Vai all'elenco</button></a>
                 </div>
             </div>
         </div>
