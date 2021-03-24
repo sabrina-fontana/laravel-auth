@@ -10007,3 +10007,9 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.my-table td {
+  width: 25%;
+}
+.my-table td img {
+  height: 150px;
+}
